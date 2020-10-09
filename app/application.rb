@@ -8,7 +8,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      @@items.each do |item|
+        @@items.each do |item|
         resp.write "#{item}\n"
       end
     elsif req.path.match(/cart/)
@@ -19,7 +19,8 @@ class Application
         resp.write "#{item}\n"
       end
     end
-    
+  elsif req.path.match(/add/)
+
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
